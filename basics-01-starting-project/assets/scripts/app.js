@@ -22,9 +22,26 @@ function createAndWriteLog(operator, resultBeforeCalc, calcNumber) {
   outputResult(currentResult, calcDescription);
 }
 
+function calculateResult(calculationType) {
+  const enteredNumber = getUserInput();
+  const initialResult = currentResult;
+  let mathOperator;
+  if (calculationType === "ADD") {
+    currentResult += enteredNumber;
+    mathOperator = "+";
+  } else if (calculationType === "ADD") {
+    currentResult -= enteredNumber;
+  }
+
+  currentResult += enteredNumber;
+  createAndWriteLog("+", initialResult, enteredNumber);
+  writeToLog("ADD", initialResult, enteredNumber, currentResult);
+}
+
 function add() {
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
+  console.log("INPUT: ", enteredNumber);
   currentResult += enteredNumber;
   createAndWriteLog("+", initialResult, enteredNumber);
   writeToLog("ADD", initialResult, enteredNumber, currentResult);
@@ -33,6 +50,7 @@ function add() {
 function subtract() {
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
+
   currentResult -= enteredNumber;
   createAndWriteLog("-", initialResult, enteredNumber);
   writeToLog("SUBTRACT", initialResult, enteredNumber, currentResult);
